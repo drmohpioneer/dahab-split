@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<title>Dahab Split</title>
+<meta name="theme-color" content="#06202c">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Dahab Split">
+<meta name="robots" content="noindex, nofollow">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06202c; --bg2:#0b3a4a; --card:rgba(255,255,255,.07); --card2:rgba(255,255,255,.11);
+  --line:rgba(255,255,255,.12); --text:#eef8f9; --muted:#8fb4bc;
+  --teal:#2ee6c9; --coral:#ff7a59; --sun:#ffc861; --green:#45e38f; --red:#ff5d73;
+  --mohamed:#ffc861; --waleed:#6ea8ff; --osos:#45e38f; --beso:#ff7a59;
+  --r:22px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0}
+body{
+  font-family:Outfit,system-ui,sans-serif;color:var(--text);min-height:100vh;
+  background:radial-gradient(120% 60% at 50% 0%,#0f5566 0%,var(--bg2) 35%,var(--bg) 75%) fixed,var(--bg);
+  padding-bottom:120px;overflow-x:hidden;
+}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px}
+
+/* hero */
+.hero{position:relative;padding:calc(env(safe-area-inset-top) + 18px) 0 70px;overflow:hidden}
+.hero .sun{position:absolute;width:260px;height:260px;border-radius:50%;right:-70px;top:-60px;
+  background:radial-gradient(circle,#ffe7a8 0%,#ffc861 35%,rgba(255,122,89,.45) 60%,transparent 72%);filter:blur(2px);opacity:.85}
+.topbar{display:flex;align-items:center;justify-content:space-between;position:relative}
+.brand{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:26px;letter-spacing:.2px}
+.brand span{color:var(--sun)}
+.me{display:flex;align-items:center;gap:8px;background:var(--card2);border:1px solid var(--line);
+  padding:4px 12px 4px 4px;border-radius:99px;font-weight:600;font-size:14px}
+.me img{width:34px;height:34px;border-radius:50%;background:var(--c)}
+.total-wrap{position:relative;text-align:center;margin-top:26px}
+.total-label{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:2.5px}
+.total{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:64px;line-height:1;margin-top:6px;
+  background:linear-gradient(180deg,#fff 20%,#ffd98e);-webkit-background-clip:text;background-clip:text;color:transparent}
+.total small{font-size:22px;color:var(--sun);-webkit-text-fill-color:var(--sun);margin-left:4px}
+.sub{color:var(--muted);margin-top:8px;font-size:14px}
+.crew{display:flex;justify-content:center;margin-top:16px}
+.crew img{width:52px;height:52px;border-radius:50%;background:var(--c);border:3px solid var(--bg2);margin-left:-12px;
+  animation:bob 3s ease-in-out infinite}
+.crew img:first-child{margin-left:0}
+.crew img:nth-child(2){animation-delay:.4s}.crew img:nth-child(3){animation-delay:.8s}.crew img:nth-child(4){animation-delay:1.2s}
+@keyframes bob{50%{transform:translateY(-5px)}}
+.waves{position:absolute;left:0;right:0;bottom:0;height:60px}
+.waves svg{position:absolute;bottom:0;width:100%;height:60px}
+
+/* sections */
+section{margin-top:26px}
+h2{font-family:"Baloo 2",sans-serif;font-size:21px;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+h2 .pill{font-family:Outfit;font-size:12px;font-weight:600;background:var(--card2);padding:3px 10px;border-radius:99px;color:var(--muted)}
+
+.balances{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bal{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 12px 14px;text-align:center;overflow:hidden}
+.bal::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 60% at 50% 0%,color-mix(in srgb,var(--c) 28%,transparent),transparent 70%)}
+.bal>*{position:relative}
+.bal .av{width:78px;height:78px;border-radius:50%;background:var(--c);display:block;margin:0 auto;box-shadow:0 0 0 3px rgba(255,255,255,.15)}
+.bal .crown{position:absolute;top:6px;right:10px;font-size:20px}
+.bal .name{font-weight:700;margin-top:8px;font-size:16px}
+.bal .amt{font-family:"Baloo 2";font-weight:800;font-size:24px;line-height:1.1;margin-top:2px}
+.bal .amt.pos{color:var(--green)} .bal .amt.neg{color:var(--red)} .bal .amt.zero{color:var(--muted)}
+.bal .hint{font-size:12px;color:var(--muted)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.settle-row{display:flex;align-items:center;gap:10px;padding:12px 14px;border-top:1px solid var(--line)}
+.settle-row:first-child{border-top:0}
+.settle-row .pair{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.settle-row .pair img{width:42px;height:42px;border-radius:50%;background:var(--c)}
+.settle-row .arrow{color:var(--sun);font-size:18px}
+.settle-row .txt{flex:1;min-width:0;font-size:14px;line-height:1.3}
+.settle-row .txt b{font-family:"Baloo 2";font-size:19px;display:block}
+.btn-paid{background:linear-gradient(135deg,var(--teal),#1bb5a0);color:#032a25;font-weight:700;font-size:13px;padding:9px 12px;border-radius:12px;white-space:nowrap}
+.allgood{padding:22px 16px;text-align:center;color:var(--muted)}
+.allgood .big{font-size:40px}
+.allgood b{color:var(--text);display:block;font-size:17px;margin:4px 0 2px}
+
+.day{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin:18px 4px 8px}
+.exp{display:flex;align-items:center;gap:12px;padding:12px;background:var(--card);border:1px solid var(--line);border-radius:18px;margin-bottom:8px;width:100%;text-align:left;
+  animation:pop .35s ease both}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.98)}}
+.exp .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:var(--card2);flex-shrink:0}
+.exp .mid{flex:1;min-width:0}
+.exp .t{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.exp .m{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px;margin-top:3px;flex-wrap:wrap}
+.minis{display:inline-flex}
+.minis img{width:20px;height:20px;border-radius:50%;background:var(--c);border:1.5px solid var(--bg2);margin-left:-6px}
+.minis img:first-child{margin-left:0}
+.exp .r{text-align:right;flex-shrink:0}
+.exp .a{font-family:"Baloo 2";font-weight:800;font-size:19px}
+.exp .e{font-size:11px;color:var(--muted)}
+.exp.settle{background:rgba(46,230,201,.08);border-color:rgba(46,230,201,.25)}
+.empty{text-align:center;color:var(--muted);padding:30px 10px}
+.empty .big{font-size:46px}
+
+.fab{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom) + 20px);z-index:20;
+  background:linear-gradient(135deg,var(--sun),var(--coral));color:#3a1405;font-weight:800;font-size:17px;
+  padding:16px 28px;border-radius:99px;box-shadow:0 12px 30px rgba(255,122,89,.45),inset 0 1px 0 rgba(255,255,255,.5);display:flex;align-items:center;gap:8px}
+.fab span{font-size:24px;line-height:0}
+.fab:active{transform:translateX(-50%) scale(.96)}
+
+/* sheet */
+.overlay{position:fixed;inset:0;background:rgba(2,12,18,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:40;opacity:0;pointer-events:none;transition:opacity .25s}
+.overlay.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;max-height:92vh;overflow-y:auto;
+  background:linear-gradient(180deg,#0f3b4a,#082733);border-radius:28px 28px 0 0;border-top:1px solid var(--line);
+  padding:10px 0 calc(env(safe-area-inset-bottom) + 20px);transform:translateY(105%);visibility:hidden;transition:transform .35s cubic-bezier(.2,.9,.3,1.1),visibility 0s .35s}
+.sheet.on{transform:none;visibility:visible;transition-delay:0s}
+.grab{width:44px;height:5px;border-radius:9px;background:rgba(255,255,255,.25);margin:0 auto 10px}
+.sheet h3{font-family:"Baloo 2";font-size:22px;margin:0 0 10px;display:flex;justify-content:space-between;align-items:center}
+.x{font-size:22px;color:var(--muted);padding:4px 8px}
+.amount-in{display:flex;align-items:baseline;justify-content:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:10px}
+.amount-in input{background:none;border:0;outline:0;color:var(--text);font-family:"Baloo 2";font-weight:800;font-size:46px;width:100%;text-align:center;min-width:0}
+.amount-in span{color:var(--sun);font-weight:700}
+.field{width:100%;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;color:var(--text);font:inherit;font-size:16px;outline:0;margin-top:10px}
+.field:focus,.amount-in:focus-within{border-color:var(--teal)}
+.lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin:18px 2px 8px;display:flex;justify-content:space-between}
+.lbl button{color:var(--teal);text-transform:none;letter-spacing:0;font-size:13px;font-weight:600}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;background:var(--card);border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-size:14px;font-weight:500}
+.chip.on{background:var(--sun);color:#3a1405;border-color:var(--sun)}
+.faces{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.face{text-align:center;font-size:13px;font-weight:600;color:var(--muted);transition:transform .15s}
+.face img{width:100%;max-width:74px;aspect-ratio:1;border-radius:50%;background:var(--c);display:block;margin:0 auto 5px;opacity:.35;filter:grayscale(.8);transition:all .2s;border:3px solid transparent}
+.face.on{color:var(--text)}
+.face.on img{opacity:1;filter:none;border-color:#fff;box-shadow:0 0 0 3px var(--c),0 8px 20px rgba(0,0,0,.3)}
+.face:active{transform:scale(.93)}
+.preview{margin-top:14px;text-align:center;font-size:14px;color:var(--muted);min-height:20px}
+.preview b{color:var(--sun)}
+.save{width:100%;margin-top:14px;background:linear-gradient(135deg,var(--sun),var(--coral));color:#3a1405;font-weight:800;font-size:17px;padding:16px;border-radius:18px}
+.save:disabled{opacity:.4}
+.del{width:100%;margin-top:10px;color:var(--red);font-weight:600;padding:12px}
+
+/* who are you / lock */
+.full{position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;padding:24px;
+  background:radial-gradient(120% 70% at 50% 0%,#0f5566,var(--bg) 70%)}
+.full.on{display:flex}
+.full .box{text-align:center;max-width:380px;width:100%}
+.full h1{font-family:"Baloo 2";font-size:34px;margin:0 0 4px}
+.full p{color:var(--muted);margin:0 0 24px}
+.full .faces{grid-template-columns:1fr 1fr;gap:18px}
+.full .face img{max-width:120px;opacity:1;filter:none}
+.full .face{font-size:17px;color:var(--text)}
+
+.toast{position:fixed;left:50%;top:calc(env(safe-area-inset-top) + 14px);transform:translate(-50%,-150%);z-index:80;
+  background:#fff;color:#06202c;font-weight:600;padding:11px 18px;border-radius:99px;box-shadow:0 10px 30px rgba(0,0,0,.3);transition:transform .35s cubic-bezier(.2,.9,.3,1.2);white-space:nowrap;font-size:14px}
+.toast.on{transform:translate(-50%,0)}
+.sync{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--green);margin-right:6px;box-shadow:0 0 8px var(--green)}
+.sync.off{background:var(--sun);box-shadow:0 0 8px var(--sun)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="sun"></div>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">Dahab<span>Split</span> 🌊</div>
+      <button class="me" id="meBtn"></button>
+    </div>
+    <div class="total-wrap">
+      <div class="total-label">Trip total</div>
+      <div class="total"><span id="total">0</span><small>EGP</small></div>
+      <div class="sub" id="sub"></div>
+      <div class="crew" id="crew"></div>
+    </div>
+  </div>
+  <div class="waves">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path fill="rgba(46,230,201,.12)" d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 V60 H0Z"/><path fill="rgba(46,230,201,.08)" d="M0 40 Q150 15 300 40 T600 40 T900 40 T1200 40 V60 H0Z"/></svg>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>Who owes who</h2>
+    <div class="balances" id="balances"></div>
+  </section>
+  <section>
+    <h2>Settle up <span class="pill" id="settleCount"></span></h2>
+    <div class="card" id="settle"></div>
+  </section>
+  <section>
+    <h2>Expenses <span class="pill" id="expCount"></span></h2>
+    <div id="list"></div>
+  </section>
+</main>
+
+<button class="fab" id="addBtn"><span>+</span> Add expense</button>
+
+<div class="overlay" id="overlay"></div>
+<div class="sheet" id="sheet">
+  <div class="wrap">
+    <div class="grab"></div>
+    <h3><span id="sheetTitle">New expense</span><button class="x" id="closeSheet">✕</button></h3>
+    <div class="amount-in"><input id="fAmount" inputmode="decimal" placeholder="0" autocomplete="off"><span>EGP</span></div>
+    <input class="field" id="fDesc" placeholder="What was it? (fish dinner, snorkel, taxi…)" maxlength="60" autocomplete="off">
+    <div class="lbl">Category</div>
+    <div class="chips" id="fCats"></div>
+    <div class="lbl">Who paid?</div>
+    <div class="faces" id="fPayer"></div>
+    <div class="lbl">Split between <button id="allBtn">Everyone</button></div>
+    <div class="faces" id="fSplit"></div>
+    <div class="preview" id="preview"></div>
+    <button class="save" id="saveBtn">Save</button>
+    <button class="del" id="delBtn" hidden>Delete this expense</button>
+  </div>
+</div>
+
+<div class="full" id="whoScreen">
+  <div class="box">
+    <h1>Yo! Who's this? 👋</h1>
+    <p>Tap your face so the app knows it's you.</p>
+    <div class="faces" id="whoFaces"></div>
+  </div>
+</div>
+
+<div class="full" id="lockScreen">
+  <div class="box">
+    <div style="font-size:64px">🔒</div>
+    <h1>Crew only</h1>
+    <p>Open the Dahab Split link from the group chat to get in.</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, addDoc, doc, updateDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const PEOPLE = [
+  { id: "mohamed", name: "Mohamed" },
+  { id: "waleed",  name: "Waleed"  },
+  { id: "osos",    name: "OsOs"    },
+  { id: "beso",    name: "Beso"    },
+];
+const CATS = [
+  ["food","🍽️","Food"],["cafe","☕","Cafe"],["dive","🤿","Diving"],["transport","🚕","Transport"],
+  ["stay","🏠","Stay"],["groceries","🛒","Groceries"],["fun","🎉","Fun"],["other","📦","Other"],
+];
+const $ = (id) => document.getElementById(id);
+const byId = Object.fromEntries(PEOPLE.map(p => [p.id, p]));
+const av = (id) => `avatars/${id}.webp`;
+const color = (id) => `var(--${id})`;
+const fmt = (n) => Math.round(n).toLocaleString("en-US");
+const esc = (s) => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const face = (id, cls = "") => `<img class="${cls}" src="${av(id)}" alt="${byId[id].name}" style="--c:${color(id)}">`;
+const store = {
+  get(k) { try { return localStorage.getItem(k); } catch { return null; } },
+  set(k, v) { try { localStorage.setItem(k, v); } catch {} },
+};
+
+// The trip code lives only in the link (#t=...), never in this file. Firestore rules only open that path.
+const hashCode = new URLSearchParams(location.hash.slice(1)).get("t");
+if (hashCode) store.set("trip", hashCode);
+const TRIP = hashCode || store.get("trip");
+if (!TRIP) { $("lockScreen").classList.add("on"); throw new Error("no trip code"); }
+if (!hashCode) history.replaceState(null, "", "#t=" + TRIP);
+
+const app = initializeApp({
+  apiKey: "AIzaSyBnyzvZvgPPUzo2A3Gnm7oC-pucMJ9Aw1c",
+  authDomain: "dahab-split.firebaseapp.com",
+  projectId: "dahab-split",
+  storageBucket: "dahab-split.firebasestorage.app",
+  messagingSenderId: "557732545570",
+  appId: "1:557732545570:web:a6838a8369ce010b75b67b",
+});
+// Local cache: works on bad Dahab wifi, syncs when the connection comes back.
+const db = initializeFirestore(app, { localCache: persistentLocalCache({ tabManager: persistentMultipleTabManager() }) });
+const col = collection(db, "trips", TRIP, "expenses");
+
+let me = store.get("me");
+let items = [];
+let shownTotal = 0;
+let firstLoad = true;
+
+/* ---------- who am I ---------- */
+function renderMe() {
+  if (!me || !byId[me]) { showWho(); return; }
+  $("meBtn").innerHTML = `${face(me)}${byId[me].name}`;
+}
+function showWho() {
+  $("whoFaces").innerHTML = PEOPLE.map(p => `<button class="face on" data-id="${p.id}">${face(p.id)}${p.name}</button>`).join("");
+  $("whoScreen").classList.add("on");
+}
+$("whoFaces").addEventListener("click", (e) => {
+  const b = e.target.closest(".face"); if (!b) return;
+  me = b.dataset.id; store.set("me", me);
+  $("whoScreen").classList.remove("on");
+  renderMe();
+  toast(`Ahlan ${byId[me].name}! 🌴`);
+});
+$("meBtn").addEventListener("click", showWho);
+
+/* ---------- maths ---------- */
+function computeBalances() {
+  const net = Object.fromEntries(PEOPLE.map(p => [p.id, 0]));
+  const paid = Object.fromEntries(PEOPLE.map(p => [p.id, 0]));
+  let total = 0;
+  for (const x of items) {
+    const split = (x.split || []).filter(id => id in net);
+    if (!(x.paidBy in net) || !split.length || !(x.amount > 0)) continue;
+    net[x.paidBy] += x.amount;
+    split.forEach(id => net[id] -= x.amount / split.length);
+    if (x.type !== "settle") { total += x.amount; paid[x.paidBy] += x.amount; }
+  }
+  return { net, paid, total };
+}
+// Fewest transfers: repeatedly match the biggest debtor with the biggest creditor.
+function settlements(net) {
+  const cred = [], debt = [];
+  for (const [id, v] of Object.entries(net)) {
+    if (v > 0.5) cred.push({ id, v }); else if (v < -0.5) debt.push({ id, v: -v });
+  }
+  const out = [];
+  while (cred.length && debt.length) {
+    cred.sort((a, b) => b.v - a.v); debt.sort((a, b) => b.v - a.v);
+    const c = cred[0], d = debt[0], amt = Math.min(c.v, d.v);
+    out.push({ from: d.id, to: c.id, amount: amt });
+    c.v -= amt; d.v -= amt;
+    if (c.v <= 0.5) cred.shift();
+    if (d.v <= 0.5) debt.shift();
+  }
+  return out;
+}
+
+/* ---------- render ---------- */
+function render() {
+  const { net, paid, total } = computeBalances();
+  const expenses = items.filter(x => x.type !== "settle");
+  animateTotal(total);
+  $("sub").innerHTML = `<span class="sync${navigator.onLine ? "" : " off"}"></span>4 legends · ${expenses.length} expense${expenses.length === 1 ? "" : "s"}`;
+  $("crew").innerHTML = PEOPLE.map(p => face(p.id)).join("");
+
+  const top = Math.max(...Object.values(paid));
+  $("balances").innerHTML = PEOPLE.map(p => {
+    const v = net[p.id], r = Math.round(v);
+    const cls = r > 0 ? "pos" : r < 0 ? "neg" : "zero";
+    const hint = r > 0 ? "gets back" : r < 0 ? "owes" : "all square ✌️";
+    const crown = top > 0 && paid[p.id] === top ? `<span class="crown" title="Biggest spender">👑</span>` : "";
+    return `<div class="bal" style="--c:${color(p.id)}">${crown}${face(p.id, "av")}
+      <div class="name">${p.name}</div>
+      <div class="amt ${cls}">${r > 0 ? "+" : r < 0 ? "−" : ""}${fmt(Math.abs(v))}</div>
+      <div class="hint">${hint} · paid ${fmt(paid[p.id])}</div></div>`;
+  }).join("");
+
+  const plan = settlements(net);
+  $("settleCount").textContent = plan.length ? `${plan.length} transfer${plan.length > 1 ? "s" : ""}` : "";
+  $("settle").innerHTML = plan.length ? plan.map((s, i) => `
+    <div class="settle-row">
+      <div class="pair">${face(s.from)}<span class="arrow">➜</span>${face(s.to)}</div>
+      <div class="txt">${byId[s.from].name} pays ${byId[s.to].name}<b>${fmt(s.amount)} EGP</b></div>
+      <button class="btn-paid" data-i="${i}">Paid ✓</button>
+    </div>`).join("")
+    : `<div class="allgood"><div class="big">🤙</div><b>Everyone's square</b>${expenses.length ? "Nobody owes anybody. Legends." : "Add the first expense to get going."}</div>`;
+  $("settle").onclick = async (e) => {
+    const b = e.target.closest(".btn-paid"); if (!b) return;
+    const s = plan[+b.dataset.i];
+    if (!confirm(`${byId[s.from].name} paid ${byId[s.to].name} ${fmt(s.amount)} EGP?`)) return;
+    await save({ type: "settle", desc: "Settled up", cat: "settle", amount: Math.round(s.amount * 100) / 100, paidBy: s.from, split: [s.to] });
+    const left = settlements(computeBalances().net).length;
+    if (!left) boom(); else toast("Marked as paid 💸");
+  };
+
+  $("expCount").textContent = expenses.length || "";
+  if (!items.length) {
+    $("list").innerHTML = `<div class="empty"><div class="big">🏝️</div>No expenses yet.<br>Tap <b>Add expense</b> when someone pays.</div>`;
+    return;
+  }
+  const sorted = [...items].sort((a, b) => (b.ts || 0) - (a.ts || 0));
+  let html = "", lastDay = "";
+  for (const x of sorted) {
+    const d = dayLabel(x.ts);
+    if (d !== lastDay) { html += `<div class="day">${d}</div>`; lastDay = d; }
+    if (x.type === "settle") {
+      html += `<button class="exp settle" data-id="${x.id}"><div class="ic">💸</div><div class="mid">
+        <div class="t">${byId[x.paidBy]?.name} paid ${byId[x.split[0]]?.name}</div><div class="m">Settled up</div></div>
+        <div class="r"><div class="a">${fmt(x.amount)}</div><div class="e">EGP</div></div></button>`;
+      continue;
+    }
+    const cat = CATS.find(c => c[0] === x.cat) || CATS[CATS.length - 1];
+    const n = x.split.length;
+    html += `<button class="exp" data-id="${x.id}"><div class="ic">${cat[1]}</div><div class="mid">
+      <div class="t">${esc(x.desc || cat[2])}</div>
+      <div class="m">${byId[x.paidBy]?.name} paid · <span class="minis">${x.split.map(id => face(id)).join("")}</span>${n < 4 ? ` ${n} of 4` : ""}</div></div>
+      <div class="r"><div class="a">${fmt(x.amount)}</div><div class="e">${fmt(x.amount / n)} each</div></div></button>`;
+  }
+  $("list").innerHTML = html;
+}
+$("list").addEventListener("click", (e) => {
+  const b = e.target.closest(".exp"); if (!b) return;
+  openSheet(items.find(x => x.id === b.dataset.id));
+});
+
+function dayLabel(ts) {
+  if (!ts) return "Just now";
+  const d = new Date(ts), t = new Date();
+  const k = (x) => x.toDateString();
+  if (k(d) === k(t)) return "Today";
+  t.setDate(t.getDate() - 1);
+  if (k(d) === k(t)) return "Yesterday";
+  return d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+}
+function animateTotal(to) {
+  const from = shownTotal, t0 = performance.now(), dur = firstLoad ? 900 : 600;
+  shownTotal = to;
+  const step = (t) => {
+    const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+    $("total").textContent = fmt(from + (to - from) * e);
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+/* ---------- sheet ---------- */
+let editing = null, fCat = "food", fPayer = null, fSplit = new Set();
+function openSheet(x) {
+  editing = x || null;
+  if (x && x.type === "settle") {
+    if (confirm(`Undo this settlement (${byId[x.paidBy].name} → ${byId[x.split[0]].name}, ${fmt(x.amount)} EGP)?`)) {
+      deleteDoc(doc(col, x.id)); toast("Settlement undone");
+    }
+    return;
+  }
+  $("sheetTitle").textContent = x ? "Edit expense" : "New expense";
+  $("fAmount").value = x ? x.amount : "";
+  $("fDesc").value = x ? x.desc || "" : "";
+  fCat = x ? x.cat : "food";
+  fPayer = x ? x.paidBy : me;
+  fSplit = new Set(x ? x.split : PEOPLE.map(p => p.id));
+  $("delBtn").hidden = !x;
+  drawSheet();
+  $("overlay").classList.add("on"); $("sheet").classList.add("on");
+  if (!x) setTimeout(() => $("fAmount").focus(), 350);
+}
+function closeSheet() { $("overlay").classList.remove("on"); $("sheet").classList.remove("on"); document.activeElement?.blur(); }
+function drawSheet() {
+  $("fCats").innerHTML = CATS.map(c => `<button class="chip${c[0] === fCat ? " on" : ""}" data-c="${c[0]}">${c[1]} ${c[2]}</button>`).join("");
+  $("fPayer").innerHTML = PEOPLE.map(p => `<button class="face${p.id === fPayer ? " on" : ""}" data-id="${p.id}" style="--c:${color(p.id)}">${face(p.id)}${p.name}</button>`).join("");
+  $("fSplit").innerHTML = PEOPLE.map(p => `<button class="face${fSplit.has(p.id) ? " on" : ""}" data-id="${p.id}" style="--c:${color(p.id)}">${face(p.id)}${p.name}</button>`).join("");
+  updatePreview();
+}
+function amountVal() { return parseFloat(($("fAmount").value || "").replace(/[^\d.]/g, "")) || 0; }
+function updatePreview() {
+  const a = amountVal(), n = fSplit.size;
+  $("preview").innerHTML = a > 0 && n ? `<b>${fmt(a / n)} EGP</b> each for ${n === 4 ? "all 4" : [...fSplit].map(id => byId[id].name).join(", ")}` : n ? "" : "Pick at least one person";
+  $("saveBtn").disabled = !(a > 0 && fPayer && n);
+}
+$("fAmount").addEventListener("input", updatePreview);
+$("fCats").addEventListener("click", (e) => { const b = e.target.closest(".chip"); if (b) { fCat = b.dataset.c; drawSheet(); } });
+$("fPayer").addEventListener("click", (e) => { const b = e.target.closest(".face"); if (b) { fPayer = b.dataset.id; drawSheet(); } });
+$("fSplit").addEventListener("click", (e) => {
+  const b = e.target.closest(".face"); if (!b) return;
+  fSplit.has(b.dataset.id) ? fSplit.delete(b.dataset.id) : fSplit.add(b.dataset.id); drawSheet();
+});
+$("allBtn").addEventListener("click", () => { fSplit = new Set(PEOPLE.map(p => p.id)); drawSheet(); });
+$("addBtn").addEventListener("click", () => { if (!me) return showWho(); openSheet(); });
+$("closeSheet").addEventListener("click", closeSheet);
+$("overlay").addEventListener("click", closeSheet);
+$("saveBtn").addEventListener("click", async () => {
+  const data = {
+    type: "expense", amount: Math.round(amountVal() * 100) / 100, desc: $("fDesc").value.trim().slice(0, 60),
+    cat: fCat, paidBy: fPayer, split: PEOPLE.map(p => p.id).filter(id => fSplit.has(id)),
+  };
+  closeSheet();
+  if (editing) { await updateDoc(doc(col, editing.id), data); toast("Updated ✏️"); }
+  else { await save(data); confetti?.({ particleCount: 70, spread: 70, origin: { y: .85 }, colors: ["#ffc861", "#ff7a59", "#2ee6c9", "#ffffff"] }); toast(`${fmt(data.amount)} EGP added 🌊`); }
+});
+$("delBtn").addEventListener("click", async () => {
+  if (!editing || !confirm("Delete this expense?")) return;
+  closeSheet(); await deleteDoc(doc(col, editing.id)); toast("Deleted 🗑️");
+});
+function save(data) { return addDoc(col, { ...data, by: me, ts: Date.now() }); }
+
+/* ---------- fx ---------- */
+let tt;
+function toast(msg) { const t = $("toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(tt); tt = setTimeout(() => t.classList.remove("on"), 2200); }
+function boom() {
+  toast("All square! Yalla, next trip 🎉");
+  const end = Date.now() + 1500;
+  (function f() {
+    confetti?.({ particleCount: 6, angle: 60, spread: 60, origin: { x: 0 } });
+    confetti?.({ particleCount: 6, angle: 120, spread: 60, origin: { x: 1 } });
+    if (Date.now() < end) requestAnimationFrame(f);
+  })();
+}
+addEventListener("online", render); addEventListener("offline", render);
+
+/* ---------- live data ---------- */
+renderMe();
+render();
+onSnapshot(col, (snap) => {
+  items = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  render(); firstLoad = false;
+}, (err) => { console.error(err); toast("Can't reach the database 😕"); });
+</script>
+</body>
+</html>
